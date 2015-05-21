@@ -5,7 +5,7 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('accounts.views',
-    url(r'^$', 'dashboard', name='dashboard'),
+    url(r'^$', 'home', name='home'),
     url(r'^login/$', 'login', name='login'),
     url(r'^register/$', 'register', name='register'),
 )
