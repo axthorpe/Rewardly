@@ -71,7 +71,7 @@ def generate():
 	innerAccountsHash["rewards"] = rewards
 	innerAccountsHash["balance"] = balance
 	outerAccountsHash = dict()
-	outerAccountsHash[customerId] = innerAccountsHash
+	outerAccountsHash[customer_id] = innerAccountsHash
 
 	return (account, outerAccountsHash)
 
