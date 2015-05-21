@@ -3,11 +3,40 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
-def dashboard(request):
+def home(request):
     return render(request, 'index.html')
 
-def register(request): 
-    #return render(request, 'index.html')
+def register(request, creation_form=UserCreationForm, extra_context=None): 
+    form = creation_form(request.POST or None)
+    if request.method == "POST": 
+        if form.is_valid(): 
+            error = "The email field is required."
+            return render(request, "register/register.html", {'message': error})
+        user = form.save(); 
+        email = request.POST.get("email")
+        user.email = email
+        user.save() 
+        profile = UserProfile(user=user)
+        username = form.cleaned_data['username']
+        random_string = str(random.random()).encode('utf8')
+        salt = hashlib.sha1(random_string).hexdigest()[:5]
+        salted = (salt + email).encode('utf8')
+        activation_key = hashlib.sha1(salted).hexdigest()
+        key_expires = datetime.datetime.today() + datetime.timedelta(2)
+        profile.activation_key = activation_key
+        profile.key_expires = key_expires
+        if len(UserProfile.objects.all()) is 0:
+            profile.administrator = 1
+        profile.save()
+        email_subject = "Account confirmation"
+        email_body = "Hey %s, thanks for signing up. To activate your account, click this link within" \
+                         "48hours http://%s/accounts/confirm/%s" % (username, get_current_site(request).domain, activation_key) % ""
+
+            send_mail(email_subject, email_body, 'viviancaas@gmail.com', [email], fail_silently=False)
+
+            return render(request, "myregistration/register_success.html")
+            
+
     return redirect('/')
 
 def login(request):
