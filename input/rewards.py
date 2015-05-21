@@ -35,7 +35,7 @@ class Customer:
 		"""Computes reward solely on deposit/withdrawal history"""
 		monthly_average_deposits, deposits_last_month, monthly_average_withdrawals, withdrawals_last_month = self.compute_average_deposits(), self.deposits_last_month(), self.compute_average_withdrawals(), self.withdrawals_last_month()
 		percent_growth = (deposits_last_month - withdrawals_last_month)/(monthly_average_deposits - monthly_average_withdrawals) - 1
-		gross_growth = (deposits_last_month - withdrawals_last_month) - (self.compute_average_deposits(2) - self.compute_average_withdrawals(2))
+		gross_growth = (deposits_last_month - withdrawals_last_month) - self.gross_growth
 		self.percent_growth, self.gross_growth = percent_growth, gross_growth
 		if percent_growth <= 0:
 			return 0
@@ -126,9 +126,8 @@ class Customer:
 
 	def add_bonus(self):
 		"""Updates balance to reflect rewards bonus"""
-		gross_growth = ((self.deposits_last_month() - self.withdrawals_last_month()) - (self.compute_average_deposits(2) - self.compute_average_withdrawals(2)))
-		if gross_growth > 0:
-			self.balance += gross_growth * self.compute_net_bonus()
+		if self.gross_growth > 0:
+			self.balance += self.gross_growth * self.compute_net_bonus()
 
 	def __cmp__(self, other):
 		"""Compares this Customer's performance to performance of other Customer"""
@@ -154,6 +153,7 @@ class Group:
 		self.q.remove(member)
 
 	def rank_list(self):
+		"""Returns a list of customers (in order of monthly growth)"""
 		return self.q
 
 test_group = Group()
