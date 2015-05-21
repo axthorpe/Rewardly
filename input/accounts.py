@@ -70,19 +70,12 @@ def generate():
 	innerAccountsHash["nickname"] = nickname	
 	innerAccountsHash["rewards"] = rewards
 	innerAccountsHash["balance"] = balance
-	outerAccountsHash = dict()
-	outerAccountsHash[customer_id] = innerAccountsHash
+	outerAccountsHash = [customer_id, innerAccountsHash]
 
-	return (account, outerAccountsHash)
+	return outerAccountsHash
 
 def listAccounts():
-	#accountList = list()
-	#for i in range(5000):
-#		accountList += account()
-
 	accountList = generate()
 	print accountList[0] #change this line; use as u want
 	print accountList[1] #change this line; use as u want
 	return accountList
-
-listAccounts()
