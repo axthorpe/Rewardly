@@ -7,4 +7,5 @@ from accounts import views
 
 urlpatterns = patterns('',
     (r'^login/$', views.login, name='login'),
+    (r'^register/$', views.register, name='register'),
 )

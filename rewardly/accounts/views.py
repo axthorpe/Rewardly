@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login
 def dashboard(request):
     return render(request, 'index.html')
 
+def register(request): 
+    #return render(request, 'index.html')
+    return redirect('/', permanent=True)
+
 def login(request):
     state = "Please log in below..."
     username = password = ''
