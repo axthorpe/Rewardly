@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4ecf52a-8d55-4221-b970-1471de2d8e6e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/accounts/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/templates/error_page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/templates/login_success.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/templates/register/register.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/templates/register/register_success.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye/css/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye/js/scripts.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/rewardly/JU51oUMIye/index.html" afterPath="$PROJECT_DIR$/rewardly/templates/login_failed.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/rewardly/templates/login.html" afterPath="$PROJECT_DIR$/rewardly/templates/register/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/db.sqlite3" afterPath="$PROJECT_DIR$/rewardly/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/templates/dashboard.html" afterPath="$PROJECT_DIR$/rewardly/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/templates/index.html" afterPath="$PROJECT_DIR$/rewardly/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/accounts/models.py" afterPath="$PROJECT_DIR$/rewardly/accounts/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/rewardly/settings.py" afterPath="$PROJECT_DIR$/rewardly/rewardly/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/static/rewardly/css/styles.css" afterPath="$PROJECT_DIR$/rewardly/static/rewardly/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/accounts/views.py" afterPath="$PROJECT_DIR$/rewardly/accounts/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SummitHack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rewardly/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rewardly/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.25">
-              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+              <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -48,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/rewardly/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7122302">
-              <caret line="175" column="42" selection-start-line="175" selection-start-column="42" selection-end-line="175" selection-end-column="42" />
+              <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#span#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -73,9 +82,9 @@
         <entry file="file://$PROJECT_DIR$/rewardly/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+              <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <marker date="1432251134915" expanded="true" signature="0:12" placeholder="import ..." />
               </folding>
             </state>
           </provider>
@@ -485,9 +494,9 @@
     <entry file="file://$PROJECT_DIR$/rewardly/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+          <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <marker date="1432251134915" expanded="true" signature="0:12" placeholder="import ..." />
           </folding>
         </state>
       </provider>
@@ -519,15 +528,7 @@
     <entry file="file://$PROJECT_DIR$/rewardly/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.25">
-          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rewardly/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -551,7 +552,7 @@
     <entry file="file://$PROJECT_DIR$/rewardly/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7122302">
-          <caret line="175" column="42" selection-start-line="175" selection-start-column="42" selection-end-line="175" selection-end-column="42" />
+          <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#span#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

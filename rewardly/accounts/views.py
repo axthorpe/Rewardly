@@ -1,62 +1,84 @@
-from django.shortcuts import render_to_response
-from django.shortcuts import redirect
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.conf import settings
+from django.shortcuts import render, HttpResponseRedirect, redirect, render_to_response
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, resolve_url
+
+from django.views.decorators.debug import sensitive_post_parameters
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.translation import ugettext as _
+
+from django.db.models import Q
+from accounts.models import UserProfile
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, SetPasswordForm, PasswordChangeForm
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.template.loader import render_to_string
+from django.utils.http import int_to_base36
+from django.core.mail import send_mail
+import hashlib,datetime, random
+from django.utils import timezone
+from django.contrib.auth import (REDIRECT_FIELD_NAME, login as auth_login, logout as auth_logout, get_user_model, update_session_auth_hash)
+
+from django.template.response import TemplateResponse
+from django.utils.http import is_safe_url
+
+from django.contrib.auth.models import User
+
 
 def home(request):
     return render(request, 'index.html')
 
-def register(request):
-    # form = creation_form(request.POST or None)
-    # if request.method == "POST":
-    #     if form.is_valid():
-    #         error = "The email field is required."
-    #         return render(request, "register/register.html", {'message': error})
-    #     user = form.save();
-    #     email = request.POST.get("email")
-    #     user.email = email
-    #     user.save()
-    #     profile = UserProfile(user=user)
-    #     username = form.cleaned_data['username']
-    #     random_string = str(random.random()).encode('utf8')
-    #     salt = hashlib.sha1(random_string).hexdigest()[:5]
-    #     salted = (salt + email).encode('utf8')
-    #     activation_key = hashlib.sha1(salted).hexdigest()
-    #     key_expires = datetime.datetime.today() + datetime.timedelta(2)
-    #     profile.activation_key = activation_key
-    #     profile.key_expires = key_expires
-    #     if len(UserProfile.objects.all()) is 0:
-    #         profile.administrator = 1
-    #     profile.save()
-    #     email_subject = "Account confirmation"
-    #     email_body = "Hey %s, thanks for signing up. To activate your account, click this link within" \
-    #                      "48hours http://%s/accounts/confirm/%s" % (username, get_current_site(request).domain, activation_key) % ""
-    #
-    #     return render(request, "myregistration/register_success.html")
-    #
+@sensitive_post_parameters()
+@csrf_protect
+@never_cache
+def register(request, creation_form=UserCreationForm, extra_context=None):
+    form = creation_form(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            if not request.POST.get("email"):
+                error = "The email field is required!"
+                return render(request, "myregistration/register.html", {'message': error})
+            user = form.save();
+            email = request.POST.get("email")
+            user.email = email
+            user.save()
+            profile = UserProfile(user=user)
+            username = form.cleaned_data['username']
+            random_string = str(random.random()).encode('utf8')
+            salt = hashlib.sha1(random_string).hexdigest()[:5]
+            salted = (salt + email).encode('utf8')
+            profile.suspended = False
+            profile.save()
+            return render(request, "register/register_success.html")
 
-    return redirect('/')
+    context = {
+    'form': form,
+    }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render(request, "register/register.html", context)
 
+@csrf_protect
 def login(request):
-    state = "Please log in below..."
-    username = password = ''
-    if request.POST:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    #redirect_to = request.POST.get(redirect_field_name, request.GET.get(redirect_field_name, ''))
 
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
-                login(request, user)
-                state = "You're successfully logged in!"
-            else:
-                state = "Your account is not active, please contact the site admin."
-        else:
-            state = "Your username and/or password were incorrect."
-
-    return render_to_response('login.html',{'state':state, 'username': username})
-
-
+                auth_login(request, user)
+                print('-----------------dfsdfsdf----------------------------')
+                return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
 def dashboard(request):
     persona = {
         'name':'himanshu',

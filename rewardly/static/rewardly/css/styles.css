@@ -89,7 +89,7 @@ img.grayscale {
   background-color:#d46054;
 }
 
-    
+
 .header h1 {
   font-size:80px;
   -webkit-text-stroke: 1px rgba(f,f,f,0.1);
@@ -113,11 +113,11 @@ img.grayscale {
 /* use alt in navbar and header for different color */
 
 .alt {
-  background-color: #28C967;
+  background-color: #06616C;
 }
 
 .alt .lead {
-  color: #28C967;
+  color: #ffffff;
 }
 
 .alt.affix {
@@ -129,6 +129,20 @@ img.grayscale {
 }
 
 
+.col-sm-2 .control-label {
+  color: #fff;
+  text-align: center;
+}
+
+.form-control {
+  width: 200px;
+  text-align: center;
+}
+
+.form-horizontal{
+  text-align: center;
+  color: #fff;
+}
 
 .blurb {
   padding: 120px 0;
@@ -140,7 +154,7 @@ img.grayscale {
 }
 
 .bright {
-  background: #dbdbdb url('http://www.bootply.com/assets/example/pt_topo.png') repeat center center fixed; 
+  background: #dbdbdb url('http://www.bootply.com/assets/example/pt_topo.png') repeat center center fixed;
   color:#777;
 }
 
@@ -162,7 +176,7 @@ img.grayscale {
   width: 140px;
   height: 140px;
   line-height: 136px;
-  vertical-align: middle; 
+  vertical-align: middle;
   text-align: center;
 }
 
@@ -175,7 +189,7 @@ img.grayscale {
   padding-top:7%;
   height: 100%;
   width: 100%;
-  background: url('http://www.bootply.com/assets/example/bg_suburb.jpg') no-repeat center center fixed; 
+  background: url('http://www.bootply.com/assets/example/bg_suburb.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

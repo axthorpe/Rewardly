@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		{% load staticfiles %}
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>CapitalCity Template</title>
+		<title>Rewardly - Welcome</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="{% static "rewardly/css/styles.css" %}" rel="stylesheet">
 	</head>
 	<body>
 
-<div class="navbar navbar-fixed-top alt" data-spy="affix" data-offset-top="1000">
+<!--<div class="navbar navbar-fixed-top alt" data-spy="affix" data-offset-top="1000">
   <div class="container">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Home</a>
@@ -25,7 +31,7 @@
         <span class="icon-bar"></span>
       </a>
     </div>
-    <div class="navbar-collapse collapse" id="navbar">
+   <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
         <li><a href="#sec1">Section 1</a></li>
         <li><a href="#sec2">Section 2</a></li>
@@ -34,15 +40,45 @@
       </ul>
     </div>
    </div>
-</div>
+</div>-->
 
 <div class="header alt vert">
   <div class="container">
-    
-    <h1>CapitalCity</h1>
-      <p class="lead">Starter Template for Bootstrap 3</p>
+
+    <h1>Rewardly</h1>
+      <p class="lead">Save. Compete. Earn. Give.</p>
       <div>&nbsp;</div>
-      <a href="http://www.bootply.com/JU51oUMIye" class="btn btn-default btn-lg">Get Started</a>
+      <form class="form-horizontal" style="text-align: center" action="{% url 'register' %}" method="POST">{% csrf_token %}
+    <div class="form-group">
+            <h3>{{ message }}</h3>
+    </div>
+  <div class="form-group center-block" style="text-align: center">
+    <div class="col-sm-10 center-block" width="100%" style="width: 100%; text-align: center; float: none; display: block; margin-left: auto; margin-right: auto">
+      <input type="username" style="display: block; margin-left: auto; marign-right: auto; float: none; text-align: center; width: 200px" class="form-control center-block" id="id_username" name="username" placeholder="Username">
+    </div>
+  </div>
+  <div class="form-group center-block" style="text-align: center">
+    <div class="col-sm-10 center-block" width="100%" style="width: 100%; text-align: center; float: none">
+      <input type="password" style="float: none; text-align: center; width: 200px" class="form-control center-block" id="id_password" name="password1" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group center-block" style="text-align: center">
+    <div class="col-sm-10 center-block" width="100%" style="width: 100%; text-align: center; float: none">
+      <input type="password" style="float: none; text-align: center; width: 200px" class="form-control center-block" id="id_password_2" name="password2" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group center-block" style="text-align: center">
+    <div class="col-sm-10 center-block" width="100%" style="width: 100%; text-align: center; float: none">
+      <input type="password" style="float: none; text-align: center; width: 200px" class="form-control center-block" id="id_email" name="email" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group center-block" style="text-align: center">
+    <div class="col-sm-offset-2 col-sm-10 center-block" width="100%" style="width: 100%; text-align: center; float: none">
+      <button type="submit" class="btn btn-default">Register</button>
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
 
@@ -112,7 +148,7 @@
        <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/95.jpg"></div>
        <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/67.jpg"></div>
        <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/27.jpg"></div>
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/15.jpg"></div>  
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/15.jpg"></div>
        <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/18.jpg"></div>
       </div>
     </div>
@@ -124,7 +160,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h1>Mobile-first</h1>
-        <img src="/assets/example/bg_smartphones.jpg" class="img-responsive">
+        <img src="{% static "/assets/example/bg_smartphones.jpg" %}" class="img-responsive">
       </div>
     </div>
   </div>
@@ -133,7 +169,7 @@
 <hr>
 
 <div class="gallery">
-  
+
   <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center">
         <h5>This Template is Responsive</h5>
@@ -141,11 +177,11 @@
         <br>
       </div>
   </div>
-  
+
   <div class="container well well-lg">
-    
+
     <div class="row">
-    		
+
       	<div class="col-sm-3">
           <div class="list-group">
             <a href="#" class="list-group-item">
@@ -217,7 +253,7 @@
             <a href="#" class="list-group-item">
               <span class="text-success"><i class="icon-font"></i></span> Typography</a>
           </div>
-        </div>      
+        </div>
     </div>
   </div>
 </div>
@@ -237,37 +273,37 @@
 </div>
 
 <div class="blurb bright">
-  
+
   <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center">
         <h3>Smashing Heading</h3>
         <br>
       </div>
   </div>
-  
+
   <div class="row">
     <div class="col-sm-4 col-sm-offset-2">
          <div class="panel panel-default">
          <div class="panel-heading text-center"><h2><i class="icon-chevron-left"></i> Left</h2></div>
-         <div class="panel-body text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+         <div class="panel-body text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
           Aliquam in felis si.
             <div class="row">&nbsp;</div>
-          <button class="btn btn-lg btn-primary btn-block">Login</button> 
+          <button class="btn btn-lg btn-primary btn-block">Login</button>
           </div>
          </div>
  	</div>
     <div class="col-sm-4">
          <div class="panel panel-default">
          <div class="panel-heading text-center"><h2>Right <i class="icon-chevron-right"></i></h2></div>
-         <div class="panel-body text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+         <div class="panel-body text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
           Aliquam in felis sit.
            <div class="row">&nbsp;</div>
-          <button class="btn btn-lg btn-primary btn-block">Sign Up</button> 
-           
+          <button class="btn btn-lg btn-primary btn-block">Sign Up</button>
+
           </div>
          </div>
  	</div>
@@ -312,7 +348,9 @@
 
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/scripts.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+		<script src="{% static "rewardly/js/scripts.js" %}"></script>
 	</body>
 </html>
