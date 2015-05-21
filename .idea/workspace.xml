@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4ecf52a-8d55-4221-b970-1471de2d8e6e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/barChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/chart.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/chart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/chart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/static/rewardly/js/chart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/generateCustomers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/lineChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/static/rewardly/js/lineChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/pieChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rewardly/static/rewardly/js/pieChart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Charts1/style.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charts/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charts/chart.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charts/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charts/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charts/style.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/db.sqlite3" afterPath="$PROJECT_DIR$/rewardly/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rewardly/templates/dashboard.html" afterPath="$PROJECT_DIR$/rewardly/templates/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SummitHack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,21 +47,12 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rewardly/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0647482">
-              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.7122302">
+              <caret line="175" column="42" selection-start-line="175" selection-start-column="42" selection-end-line="175" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#span#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pieChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rewardly/static/rewardly/js/pieChart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -112,8 +84,8 @@
       <file leaf-file-name="chart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Charts1/chart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="12" column="65" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="65" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="10" column="62" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -228,54 +200,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummitHack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummitHack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rewardly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rewardly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummitHack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummitHack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rewardly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rewardly" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -584,14 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Charts1/chart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="12" column="65" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rewardly/static/rewardly/js/pieChart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -616,12 +532,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Charts1/lineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20710059">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Charts1/chart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="62" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rewardly/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0647482">
-          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.7122302">
+          <caret line="175" column="42" selection-start-line="175" selection-start-column="42" selection-end-line="175" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#span#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
