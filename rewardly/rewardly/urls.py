@@ -9,4 +9,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', views.login, name='login'),
+    url(r'^$', 'accounts.views.dashboard', name='dashboard'),
 ]

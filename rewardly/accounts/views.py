@@ -1,5 +1,9 @@
 from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+
+def dashboard(request):
+    return render(request, 'index.html')
 
 def login(request):
     state = "Please log in below..."
