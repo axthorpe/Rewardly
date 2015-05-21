@@ -7,7 +7,7 @@ def dashboard(request):
 
 def register(request): 
     #return render(request, 'index.html')
-    return redirect('/', permanent=True)
+    return redirect('/')
 
 def login(request):
     state = "Please log in below..."
