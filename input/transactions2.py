@@ -10,7 +10,7 @@ def generateDates():
 	return (transaction_date, transaction_month, transaction_year)
 
 def depAmounts():
-	amount = 1000*random.random()
+	amount = 2000*random.random()
 	return amount
 
 def withAmounts():

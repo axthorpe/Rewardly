@@ -45,7 +45,7 @@ class Customer:
 		"""Computes bonus reward based on comparisons with others in given group"""
 		rank_list = self.group.rank_list()
 		rank, group_size = rank_list.index(self) + 1, len(rank_list)
-		return min(self.MAX_BONUS + math.log(group_size, 10)/self.SIZE_BONUS_SCALE, ((1 - rank/group_size)/self.NORMALIZE_FACTOR)*(1 + group_size/self.SIZE_BONUS_SCALE))
+		return min(self.MAX_BONUS + math.log(group_size, self.NORMALIZE_FACTOR)/self.SIZE_BONUS_SCALE, ((1 - rank/group_size)/self.NORMALIZE_FACTOR)*(1 + group_size/self.SIZE_BONUS_SCALE))
 		
 	def compute_net_bonus(self):
 		"""Computes reward based on withdrawal/deposit history summed with reward from
@@ -156,14 +156,16 @@ class Group:
 		"""Returns a list of customers (in order of monthly growth)"""
 		return self.q
 
-test_group = Group()
-for _ in range(100):
-	deposit_history, withdrawal_history = iterate()
-	test_customer = Customer(test_group, deposit_history, withdrawal_history)
-	print "INITIAL BALANCE: " + str(test_customer.balance)
-	print "BONUS: " + str(test_customer.compute_net_bonus())
-	print "RANK: " + str(test_customer.group.rank_list().index(test_customer) + 1)
-	print "GROSS GROWTH: " + str(test_customer.gross_growth)
-	test_customer.add_bonus()
-	print "FINAL BALANCE: " + str(test_customer.balance)
-	print
+###############################################################################################################################
+# TEST CODE
+# test_group = Group()
+# for _ in range(100):
+# 	deposit_history, withdrawal_history = iterate()
+# 	test_customer = Customer(test_group, deposit_history, withdrawal_history)
+# 	print "INITIAL BALANCE: " + str(test_customer.balance)
+# 	print "BONUS: " + str(test_customer.compute_net_bonus())
+# 	print "RANK: " + str(test_customer.group.rank_list().index(test_customer) + 1)
+# 	print "GROSS GROWTH: " + str(test_customer.gross_growth)
+# 	test_customer.add_bonus()
+# 	print "FINAL BALANCE: " + str(test_customer.balance)
+# 	print
