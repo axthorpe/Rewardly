@@ -47,6 +47,10 @@ def register(request, creation_form=UserCreationForm, extra_context=None):
             user = form.save();
             email = request.POST.get("email")
             user.email = email
+            customer_id = request.POST.get("customer_id")
+            user.customer_id = customer_id
+            api_key = request.POST.get("api_key")
+            user.api_key = api_key
             user.save()
             profile = UserProfile(user=user)
             username = form.cleaned_data['username']
@@ -54,8 +58,9 @@ def register(request, creation_form=UserCreationForm, extra_context=None):
             salt = hashlib.sha1(random_string).hexdigest()[:5]
             salted = (salt + email).encode('utf8')
             profile.suspended = False
-            profile.save()
-            return render(request, "register/register_success.html")
+            user = authenticate(username=request.POST['username'], password=request.POST['password1'])
+            auth_login(request, user)
+            return HttpResponseRedirect('/')
 
     context = {
     'form': form,
@@ -75,7 +80,6 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
-                print('-----------------dfsdfsdf----------------------------')
                 return HttpResponseRedirect('/')
-    else:
-        return HttpResponseRedirect('/')
+        else:
+            return HttpResponseRedirect('/')
