@@ -80,6 +80,8 @@ def login(request):
     else:
         return HttpResponseRedirect('/')
 def dashboard(request):
+
+
     persona = {
         'name':'himanshu',
         'points':5
@@ -90,3 +92,8 @@ def dashboard(request):
     group.sort(key=lambda p: p['points'])
 
     return render_to_response('dashboard.html',{'group':group[:6]})
+
+
+
+def rewards(request):
+    return render_to_response('rewards.html')

@@ -5,5 +5,6 @@ urlpatterns = patterns('',
     url(r'^$', 'accounts.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')),
-    url(r'dashboard/', 'accounts.views.dashboard', name='dashboard')
+    url(r'dashboard/', 'accounts.views.dashboard', name='dashboard'),
+    url(r'rewards/', 'accounts.views.rewards', name='rewards')
 )
