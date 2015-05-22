@@ -31,6 +31,18 @@ class Customer:
 		self.deposit_history.append(deposit)
 		self.balance += deposit[1]
 
+	def actual_spending(self, month, year):
+		"""Returns the net withdrawals in the input month and year"""
+		total = 0
+		for deposit in self.deposit_history:
+			if deposit[0][1] == month and deposit[0][2] == year:
+				total += deposit[1]
+		return total
+
+	def ideal_spending(self):
+		"""Returns an estimate of an appropriate amount to be spent in the coming month"""
+		return self.compute_average_deposits()*0.9
+
 	def compute_base_reward(self):
 		"""Computes reward solely on deposit/withdrawal history"""
 		monthly_average_deposits, deposits_last_month, monthly_average_withdrawals, withdrawals_last_month = self.compute_average_deposits(), self.deposits_last_month(), self.compute_average_withdrawals(), self.withdrawals_last_month()
@@ -158,14 +170,12 @@ class Group:
 
 ###############################################################################################################################
 # TEST CODE
-# test_group = Group()
-# for _ in range(100):
-# 	deposit_history, withdrawal_history = iterate()
-# 	test_customer = Customer(test_group, deposit_history, withdrawal_history)
-# 	print "INITIAL BALANCE: " + str(test_customer.balance)
-# 	print "BONUS: " + str(test_customer.compute_net_bonus())
-# 	print "RANK: " + str(test_customer.group.rank_list().index(test_customer) + 1)
-# 	print "GROSS GROWTH: " + str(test_customer.gross_growth)
-# 	test_customer.add_bonus()
-# 	print "FINAL BALANCE: " + str(test_customer.balance)
-# 	print
+test_group = Group()
+for _ in range(100):
+	deposit_history, withdrawal_history = iterate()
+	test_customer = Customer(test_group, deposit_history, withdrawal_history)
+	print "IDEAL SPENDING: " + str(test_customer.ideal_spending())
+	for year in [2010, 2011, 2012, 2013, 2010]:
+		for month in range(1, 13):
+			print "ACTUAL SPENDING: " + str(test_customer.actual_spending(month, year))
+	print
