@@ -10,4 +10,5 @@ urlpatterns = patterns('accounts.views',
     url(r'^register/$', 'register', name='register'),
     url(r'^dashboard/', 'dashboard', name='dashboard'),
     url(r'^rewards/', 'rewards', name='rewards'),
+    url(r'get_all_data/', 'get_all_data', name='get_all_data'),
 )

@@ -53,12 +53,16 @@
       <div class="page-header">
 				{% load humanize %}
 
-   <span class="text-center" >
+   <span class="text-center row" >
 		<h1 style="font-size:50px"><small> Welcome, 	</small>
 			{% if user.is_active %}
 											{{ user.get_username }} </h1>
 			{% endif %}
-		<h1 style="font-size:100px">{{ rewards|intcomma }}<small>  Rewards Points!</small></h1></span>
+		<h1 style="font-size:100px">{{ rewards|intcomma }}<small>  Rewards Points!</small></h1>
+
+     <a class="pull-right" href="/accounts/rewards"><small>Redeem Rewards</small></a>
+
+   </span>
 </div>
 
 
@@ -85,8 +89,8 @@
         </div>
         <div class="col-xs-4 col-sm-6">
 
-          <h3><span class="label label-default">67%</span></h3>
-          <p>You are over!</p>
+          <h3 id="this_month_percentage"><span class="label label-default" ></span></h3>
+          <p style="font-size:16px">You are good!</p>
         </div>
         <div>
 
@@ -97,6 +101,32 @@
 
     </div>
 
+      <div class="col-md-4">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge fake1"></span>
+            May 21
+          </li>
+          <li class="list-group-item">
+            <span class="badge fake2"></span>
+            May 18
+          </li>
+          <li class="list-group-item">
+            <span class="badge fake3"></span>
+            May 15
+          </li>
+
+          <li class="list-group-item">
+            <span class="badge fake4"></span>
+            May 12
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="col-md-4">
+        <h1 class="last_month_total_expenditure col-md-2 col-md-offset-2"></h1>
       </div>
   </div>
 </div>
@@ -181,7 +211,8 @@
         <script src="{% static "rewardly/js/chart.min.js" %}"></script>
         <script src="{% static "rewardly/js/pieChart.js" %}"></script>
         <script src="{% static "rewardly/js/dashboard.js" %}"></script>
+    <script src="{% static "rewardly/js/lineChart.js" %}"></script>
 
-<script src="{% static "rewardly/js/lineChart.js" %}"></script>
+
 	</body>
 </html>

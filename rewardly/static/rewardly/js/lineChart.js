@@ -1,5 +1,10 @@
-    // line chart data
-    		var months = ["January","February","March","April","May","June", "July", "August", "October", "November", "December"];
+$.getJSON( "/accounts/get_all_data/", function( data ) {
+    var items=data;
+console.log(items);
+      // line chart data
+    var months = ["July","August","September","October","November","December", "January", "Feburary", "March", "April", "May","June"];
+            var data_set = items['scores'];
+    console.log(data_set);
             var buyerData = {
                 labels : months,
                 datasets : [
@@ -8,7 +13,7 @@
                     strokeColor : "#ACC26D",
                     pointColor : "#fff",
                     pointStrokeColor : "#9DB86D",
-                    data : [203,156,99,251,305,247, 343, 34, 343, 342, 234]
+                    data : data_set
                 }
             ]
             }
@@ -16,3 +21,6 @@
             var buyers = document.getElementById('buyers').getContext('2d');
             // draw line chart
             new Chart(buyers).Line(buyerData, {scaleFontSize: 16});
+
+});
+
