@@ -68,6 +68,6 @@ def customerCalc():
 		customers[i] = (customerID, customerVals[i][0], customerVals[i][1])
 		#print customers[i]
 
-	print customers[2]
+	print (customers[2])
 
 customerCalc()
