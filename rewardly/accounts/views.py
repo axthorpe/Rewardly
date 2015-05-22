@@ -175,7 +175,7 @@ def get_all_data(request):
         data[i]=request.session[i]
     return JsonResponse(data)
 
-
+@login_required(login_url='/accounts/login/')
 def dashboard(request):
     user = request.user
     # profile = UserProfile.objects.get(user=user)
@@ -208,9 +208,12 @@ def dashboard(request):
     })
 
 
-
+@login_required(login_url='/accounts/login/')
 def rewards(request):
     return render_to_response('rewards.html')
 
+@login_required(login_url='/accounts/login/')
+def logout(request):
+    auth_logout(request)
 
-
+    return HttpResponseRedirect('/')

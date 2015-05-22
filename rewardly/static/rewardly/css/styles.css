@@ -194,6 +194,7 @@ img.grayscale {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  opacity: 0.75;
 }
 
 .gallery {
@@ -236,22 +237,26 @@ footer {
 -moz-transition:-moz-transform 0.1s ease-in;
 -webkit-transition:-webkit-transform 0.1s ease-in;
 -o-transition:-o-transform 0.1s ease-in;
+cursor: pointer;
+border: 3px groove  #ffa100;
 }
 .rewards-thumbnail img:hover{
 -moz-transform:scale(1.2);
 -webkit-transform:scale(1.2);
 -o-transform:scale(1.2);
-
-
 }
+
 .rewards-thumbnail {
-  color:#2D4C61;
   cursor: pointer;
+  color:#fff;
+  font-size: 14px;
+}
+
+.rewards-thumbnail h4 {
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 .rewards-thumbnail:hover{
-  color:white;
+
 }
-
-
-
