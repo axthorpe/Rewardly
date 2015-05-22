@@ -189,7 +189,7 @@ img.grayscale {
   padding-top:7%;
   height: 100%;
   width: 100%;
-  background: url('http://www.bootply.com/assets/example/bg_suburb.jpg') no-repeat center center fixed;
+  background: url('http://img3.themebin.com/1920x1200/tree_of_hope_hd.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -214,6 +214,44 @@ footer {
 }
 
 /* -- end custom css for Bootstrap 3.x --*/
+
+
+
+/*dashboard*/
+.budget-under {
+  color:green;
+}
+.budget-over {
+  color:red;
+}
+.color-on-hover:hover{
+  color:#06616C
+}
+
+
+
+
+/*rewards page*/
+.rewards-thumbnail img{
+-moz-transition:-moz-transform 0.1s ease-in;
+-webkit-transition:-webkit-transform 0.1s ease-in;
+-o-transition:-o-transform 0.1s ease-in;
+}
+.rewards-thumbnail img:hover{
+-moz-transform:scale(1.2);
+-webkit-transform:scale(1.2);
+-o-transform:scale(1.2);
+
+
+}
+.rewards-thumbnail {
+  color:#2D4C61;
+  cursor: pointer;
+}
+
+.rewards-thumbnail:hover{
+  color:white;
+}
 
 
 
