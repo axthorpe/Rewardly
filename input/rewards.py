@@ -19,6 +19,7 @@ class Customer:
 		self.percent_growth = 0
 		self.gross_growth = 0
 		self.group = group # An array of other Customers
+		self.reward_points = 0
 		group.add(self)
 
 	def add_withdrawal(self, withdrawal):
@@ -30,6 +31,18 @@ class Customer:
 		"""Adds a deposit to the cached history of customer deposits"""
 		self.deposit_history.append(deposit)
 		self.balance += deposit[1]
+
+	def actual_spending(self, month, year):
+		"""Returns the net withdrawals in the input month and year"""
+		total = 0
+		for deposit in self.deposit_history:
+			if deposit[0][1] == month and deposit[0][2] == year:
+				total += deposit[1]
+		return total
+
+	def ideal_spending(self):
+		"""Returns an estimate of an appropriate amount to be spent in the coming month"""
+		return self.compute_average_deposits()*0.9
 
 	def compute_base_reward(self):
 		"""Computes reward solely on deposit/withdrawal history"""
@@ -124,10 +137,14 @@ class Customer:
 		self.deposit_history = tmp
 		return withdrawals_last_month
 
-	def add_bonus(self):
-		"""Updates balance to reflect rewards bonus"""
-		if self.gross_growth > 0:
-			self.balance += self.gross_growth * self.compute_net_bonus()
+	# def add_bonus(self):
+	# 	"""Updates balance to reflect rewards bonus"""
+	# 	if self.gross_growth > 0:
+	# 		self.balance += self.gross_growth * self.compute_net_bonus()
+
+	def update_reward_points(self):
+		"""Adds number of reward points earned this month to total reward points"""
+		self.reward_points += int(self.compute_net_bonus() * self.SIZE_BONUS_SCALE)
 
 	def __cmp__(self, other):
 		"""Compares this Customer's performance to performance of other Customer"""
@@ -158,14 +175,10 @@ class Group:
 
 ###############################################################################################################################
 # TEST CODE
-# test_group = Group()
-# for _ in range(100):
-# 	deposit_history, withdrawal_history = iterate()
-# 	test_customer = Customer(test_group, deposit_history, withdrawal_history)
-# 	print "INITIAL BALANCE: " + str(test_customer.balance)
-# 	print "BONUS: " + str(test_customer.compute_net_bonus())
-# 	print "RANK: " + str(test_customer.group.rank_list().index(test_customer) + 1)
-# 	print "GROSS GROWTH: " + str(test_customer.gross_growth)
-# 	test_customer.add_bonus()
-# 	print "FINAL BALANCE: " + str(test_customer.balance)
-# 	print
+test_group = Group()
+for _ in range(100):
+	deposit_history, withdrawal_history = iterate()
+	test_customer = Customer(test_group, deposit_history, withdrawal_history)
+	test_customer.update_reward_points()
+	print test_customer.reward_points
+	print
