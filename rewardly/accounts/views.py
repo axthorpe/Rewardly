@@ -97,7 +97,7 @@ def generateAndStoreData(request):
     request.session['this_months_spending']=int(this_months_budget*random.random())
     request.session['last_months_spending']=int(this_months_budget*(random.random()+.2))
 
-    rewards = int(1000+150*random.random())
+    rewards = int(800+100*random.random())
     request.session['rewards']=rewards
 
 
@@ -135,7 +135,7 @@ def register(request, creation_form=UserCreationForm, extra_context=None):
 
             generateAndStoreData(request)
 
-            return HttpResponseRedirect('/accounts/dashboard')
+            return redirect('dashboard')
 
     context = {
     'form': form,
