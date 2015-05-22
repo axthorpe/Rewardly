@@ -19,6 +19,7 @@ class Customer:
 		self.percent_growth = 0
 		self.gross_growth = 0
 		self.group = group # An array of other Customers
+		self.reward_points = 0
 		group.add(self)
 
 	def add_withdrawal(self, withdrawal):
@@ -136,10 +137,14 @@ class Customer:
 		self.deposit_history = tmp
 		return withdrawals_last_month
 
-	def add_bonus(self):
-		"""Updates balance to reflect rewards bonus"""
-		if self.gross_growth > 0:
-			self.balance += self.gross_growth * self.compute_net_bonus()
+	# def add_bonus(self):
+	# 	"""Updates balance to reflect rewards bonus"""
+	# 	if self.gross_growth > 0:
+	# 		self.balance += self.gross_growth * self.compute_net_bonus()
+
+	def update_reward_points(self):
+		"""Adds number of reward points earned this month to total reward points"""
+		self.reward_points += int(self.compute_net_bonus() * self.SIZE_BONUS_SCALE)
 
 	def __cmp__(self, other):
 		"""Compares this Customer's performance to performance of other Customer"""
@@ -174,8 +179,6 @@ test_group = Group()
 for _ in range(100):
 	deposit_history, withdrawal_history = iterate()
 	test_customer = Customer(test_group, deposit_history, withdrawal_history)
-	print "IDEAL SPENDING: " + str(test_customer.ideal_spending())
-	for year in [2010, 2011, 2012, 2013, 2010]:
-		for month in range(1, 13):
-			print "ACTUAL SPENDING: " + str(test_customer.actual_spending(month, year))
+	test_customer.update_reward_points()
+	print test_customer.reward_points
 	print
