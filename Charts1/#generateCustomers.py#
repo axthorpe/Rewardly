@@ -1,3 +1,5 @@
+# Creates random user
+
 import random
 import math
 from operator import itemgetter
@@ -10,7 +12,7 @@ def generateDates():
 	return (transaction_date, transaction_month, transaction_year)
 
 def depAmounts():
-	amount = 2000*random.random()
+	amount = 1000*random.random()
 	return amount
 
 def withAmounts():
@@ -18,7 +20,7 @@ def withAmounts():
 	return amount
 
 def iterate():
-	numTransactions = 1000
+	numTransactions = 5 # to be changed
 	numDeposits = numTransactions/2
 	numWithdrawals = numTransactions/2
 
@@ -43,6 +45,31 @@ def iterate():
 	for i in range(numWithdrawals):
 		withList[i] = [withDates[i], withAmounts()]
 
-	return depList, withList
+	return (depList, withList)
+	#print depList # or whatever else
+	#print withList # or whatever else
 
-print (generateDates());
+def customerCalc():
+	numCustomers = 3 # to be changed
+	customerVals = [0] * numCustomers
+	customers = [0] * numCustomers
+
+	temp = range(16)
+	temp2 = [0]*16
+	for i in range(16):
+		temp2[i] = hex(temp[i])
+		temp2[i] = temp2[i][2:]
+
+	
+
+	for i in range(numCustomers):
+		customerVals[i] = iterate()
+		customerID = ""
+		for _ in range(24):
+			customerID += random.choice(temp2)
+		customers[i] = (customerID, customerVals[i][0], customerVals[i][1])
+		#print customers[i]
+
+	print (customers[2])
+
+customerCalc()
