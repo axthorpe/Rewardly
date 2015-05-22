@@ -8,4 +8,6 @@ urlpatterns = patterns('accounts.views',
     url(r'^$', 'home', name='home'),
     url(r'^login/$', 'login', name='login'),
     url(r'^register/$', 'register', name='register'),
+    url(r'^dashboard/', 'dashboard', name='dashboard'),
+    url(r'^rewards/', 'rewards', name='rewards'),
 )

@@ -51,7 +51,14 @@
     <!--rewards points header-->
 
       <div class="page-header">
-   <span class="text-center" ><h1 style="font-size:100px">12,701<small>  Rewards Points!</small></h1></span>
+				{% load humanize %}
+
+   <span class="text-center" >
+		<h1 style="font-size:50px"><small> Welcome, 	</small>
+			{% if user.is_active %}
+											{{ user.get_username }} </h1>
+			{% endif %}
+		<h1 style="font-size:100px">{{ rewards|intcomma }}<small>  Rewards Points!</small></h1></span>
 </div>
 
 
@@ -169,7 +176,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
+
 		<script src="{% static "rewardly/js/scripts.js" %}"></script>
         <script src="{% static "rewardly/js/chart.min.js" %}"></script>
         <script src="{% static "rewardly/js/pieChart.js" %}"></script>

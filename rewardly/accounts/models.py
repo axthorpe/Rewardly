@@ -7,8 +7,8 @@ import datetime
 # Create your models here.
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    customer_id = models.CharField(max_length=25, default='123456789')
-    api_key = models.CharField(max_length=32, default='123456789')
+    customer_id = models.CharField(max_length=50, default='123456789')
+    api_key = models.CharField(max_length=50, default='123456789')
     score = models.IntegerField(default=0)
 
     def __str__(self):

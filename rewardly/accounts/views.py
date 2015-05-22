@@ -29,6 +29,8 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url
 
 from django.contrib.auth.models import User
+import requests
+import ast
 
 
 def home(request):
@@ -52,15 +54,16 @@ def register(request, creation_form=UserCreationForm, extra_context=None):
             api_key = request.POST.get("api_key")
             user.api_key = api_key
             user.save()
-            profile = UserProfile(user=user)
-            username = form.cleaned_data['username']
-            random_string = str(random.random()).encode('utf8')
-            salt = hashlib.sha1(random_string).hexdigest()[:5]
-            salted = (salt + email).encode('utf8')
-            profile.suspended = False
-            user = authenticate(username=request.POST['username'], password=request.POST['password1'])
-            auth_login(request, user)
-            return HttpResponseRedirect('/')
+            UserProfile.objects.create(user=user, customer_id=customer_id,api_key=api_key)
+            profile = UserProfile.objects.get(user=user)
+            url = 'http://api.reimaginebanking.com:8080/customers/{}/accounts?key={}'.format(profile.customer_id, profile.api_key)
+            req = requests.get(url)
+            account_id = ast.literal_eval(req.content)[0]['_id']
+            url = 'http://api.reimaginebanking.com:8080/accounts/{}?key={}'.format(account_id, profile.api_key)
+            req = requests.get(url)
+            rewards = ast.literal_eval(req.content)['rewards']
+            #return HttpResponseRedirect(reverse('dashboard', kwargs={'rewards': rewards}))
+            return render_to_response('dashboard.html', {'rewards': rewards})
 
     context = {
     'form': form,
@@ -80,7 +83,15 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
-                return HttpResponseRedirect('/')
+                profile = UserProfile.objects.get(user=user)
+                url = 'http://api.reimaginebanking.com:8080/customers/{}/accounts?key={}'.format(profile.customer_id, profile.api_key)
+                req = requests.get(url)
+                account_id = ast.literal_eval(req.content)[0]['_id']
+                url = 'http://api.reimaginebanking.com:8080/accounts/{}?key={}'.format(account_id, profile.api_key)
+                req = requests.get(url)
+                rewards = ast.literal_eval(req.content)['rewards']
+                #return HttpResponseRedirect(reverse('dashboard', kwargs={'rewards': rewards}))
+                return render_to_response('dashboard.html', {'rewards': rewards, 'user': user})
         else:
             return HttpResponseRedirect('/')
     else:
