@@ -135,7 +135,7 @@ def register(request, creation_form=UserCreationForm, extra_context=None):
 
             generateAndStoreData(request)
 
-            return render_to_response('dashboard.html', {'rewards': rewards})
+            return HttpResponseRedirect('/accounts/dashboard')
 
     context = {
     'form': form,
